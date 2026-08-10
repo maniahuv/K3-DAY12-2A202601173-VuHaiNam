@@ -2,8 +2,6 @@
 
 [![CI](https://github.com/maniahuv/K3-DAY12-2A202601173-VuHaiNam/actions/workflows/ci.yml/badge.svg)](https://github.com/maniahuv/K3-DAY12-2A202601173-VuHaiNam/actions/workflows/ci.yml)
 
-Đưa một AI agent từ `localhost:8000` lên một địa chỉ công khai mà người khác
-gọi được, có bảo mật, có giới hạn chi phí, và không sập khi bạn deploy bản mới.
 
 ---
 
