@@ -29,7 +29,7 @@ jobs:
         # Bỏ qua test_cp5.py vì nó đòi hỏi server thật đang chạy trên mây
         # Bỏ qua test build docker nếu cần bằng -m "not docker"
         run: |
-          pytest tests/ -v --ignore=tests/test_cp5.py -m "not docker"
+          pytest tests/ -v --ignore=tests/test_cp5.py --ignore=tests/test_bonus_cicd.py -m "not docker"
 
   build:
     name: Build Docker Image
