@@ -1,0 +1,55 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Chạy Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+      
+      - name: Thiết lập Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          
+      - name: Cài đặt thư viện
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Chạy Pytest
+        # Bỏ qua test_cp5.py vì nó đòi hỏi server thật đang chạy trên mây
+        # Bỏ qua test build docker nếu cần bằng -m "not docker"
+        run: |
+          pytest tests/ -v --ignore=tests/test_cp5.py -m "not docker"
+
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+        
+      - name: Build thử Docker
+        run: |
+          docker build -t day12-agent:latest .
+
+  deploy:
+    name: Tự động Deploy lên Render
+    needs: [test, build]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gọi Deploy Hook của Render
+        # Biến RENDER_DEPLOY_HOOK được giấu an toàn trong Settings > Secrets
+        run: |
+          echo "Kích hoạt Render kéo code mới về deploy..."
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
