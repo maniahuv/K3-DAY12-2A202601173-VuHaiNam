@@ -265,8 +265,8 @@ Nộp **link repository** lên Codelab. Repo phải ở chế độ public.
 
 ## Danh Sách Kiểm Tra Trước Khi Nộp
 
-- [ ] Repo đúng tên `DAY12-<MãHV>-<HọTên>`, viết liền không dấu
-- [ ] `pytest tests/ -v` — đã chạy và biết rõ test nào còn rớt, vì sao
+- [x] Repo đúng tên `DAY12-<MãHV>-<HọTên>`, viết liền không dấu
+- [x] `pytest tests/ -v` — đã chạy và biết rõ test nào còn rớt, vì sao
 - [ ] `python grade.py` — xem điểm, mục tiêu ≥ 75/100
 - [ ] `exercises.md` — đủ 10 câu, viết bằng lời của mình
 - [ ] `DEPLOYMENT.md` — có Public URL thật, không dán giá trị API key
