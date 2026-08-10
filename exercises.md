@@ -1,12 +1,8 @@
 # Phiếu Phản Ánh — K3 Ngày 12
 
-> **Bài làm cá nhân.** Trả lời bằng lời của chính bạn, dựa trên những gì bạn
-> quan sát được khi chạy code — không sao chép đáp án của người khác.
->
-> Cách trả lời: thay dòng `> *Câu trả lời của bạn*` bằng câu trả lời.
-> `grade.py` đếm số câu đã trả lời (15 điểm cho 10 câu).
->
-> Họ và tên: ..........................  Mã học viên: ..........................
+Họ và tên: Vũ Hải Nam 
+
+Mã học viên: 2A202601173
 
 ---
 
@@ -98,6 +94,7 @@ nhưng cost guard phải chặn, và một tình huống ngược lại.
 Rate limit quan tâm tới số lượng request trong khoảng thời gian ngắn nhằm chống DDoS, còn cost guard thì quan tâm tới tổng số USD mà user đã dùng trong 1 khoảng thời gian nhằm chống việc tiêu thụ quá nhiều tiền do AI xài quá nhiều token. 
 Tình huống rate limit cho qua nhưng cost guard chặn: Khi user hỏi từng request một cách chậm rãi như là yêu cầu tóm tắt cả bộ truyện harry porter, và đính kèm file truyện dài cỡ 1k trang thì khi đó rate limit cho qua còn cost guard phải chặn lại do sẽ phải mất rất nhiều tokens cho input và do đó sẽ vượt hạn mức 1 tháng.
 Trong trường hợp ngược lại, người dùng xài tools tự động hỏi các câu hỏi ví dụ "Hi" liên tục 34 lần 1 phút thì rate limit chặn nhưng cost guard không chặn do chi phí tốn rất ít
+
 ---
 
 ### Câu 8 — /health khác /ready (CP4)

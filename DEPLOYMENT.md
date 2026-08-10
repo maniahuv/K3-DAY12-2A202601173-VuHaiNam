@@ -73,15 +73,80 @@ done; echo
 Dán output của các lệnh trên vào đây:
 
 ```
-Output đã lưu lại
+1. Liveness
+HTTP/1.1 200 OK
+Date: Mon, 10 Aug 2026 08:33:44 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+rndr-id: 288360ab-e9ed-46c2
+Server: cloudflare
+vary: Accept-Encoding
+x-render-origin-server: uvicorn
+cf-cache-status: DYNAMIC
+CF-RAY: a28da84a2df60978-HKG
+alt-svc: h3=":443"; ma=86400
+
+{"status":"ok","service":"day12-agent","version":"1.0.0"}
+
+2. Readiness
+HTTP/1.1 200 OK
+Date: Mon, 10 Aug 2026 08:34:46 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+rndr-id: 84aefb26-1d12-42a2
+Server: cloudflare
+vary: Accept-Encoding
+x-render-origin-server: uvicorn
+cf-cache-status: DYNAMIC
+CF-RAY: a28da9d12f6bddbc-HKG
+alt-svc: h3=":443"; ma=86400
+
+{"status":"ready","redis":true}
+
+3. Không có API key
+HTTP/1.1 401 Unauthorized
+Date: Mon, 10 Aug 2026 08:35:22 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+rndr-id: 3e7a758e-c6ef-40d6
+Server: cloudflare
+vary: Accept-Encoding
+x-render-origin-server: uvicorn
+cf-cache-status: DYNAMIC
+CF-RAY: a28daaafeb04509d-HKG
+alt-svc: h3=":443"; ma=86400
+
+{"detail":"invalid or missing API key"}
+
+4. Có API key 
+HTTP/1.1 401 Unauthorized
+Date: Mon, 10 Aug 2026 08:35:56 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+cf-cache-status: DYNAMIC
+rndr-id: 184e2a31-1dc9-4be1
+Server: cloudflare
+vary: Accept-Encoding
+x-render-origin-server: uvicorn
+CF-RAY: a28dab848cb0105e-HKG
+alt-svc: h3=":443"; ma=86400
+
+{"detail":"invalid or missing API key"}
+
+5. Rate limit
+200 200 200 200 200 200 200 200 200 200 429 429 429 429 429
 ```
 
 ## Ảnh Chụp Màn Hình
 
 Đặt ảnh trong thư mục `screenshots/`:
 
-- `screenshots/dashboard.png` — trang quản lý service trên platform
-- `screenshots/health.png` — kết quả gọi `/health` từ trình duyệt hoặc curl
+- `screenshots/dashboard.jpg` — trang quản lý service trên platform
+- `screenshots/health.jpg` — kết quả gọi `/health` từ trình duyệt hoặc curl
 
 ---
 
